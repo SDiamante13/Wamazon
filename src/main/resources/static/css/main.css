@@ -2160,6 +2160,49 @@ li.sale-noti > a {
   opacity: 1;
 }
 
+/*[ Orders ]
+///////////////////////////////////////////////////////////
+*/
+/*[ Table ]
+-----------------------------------------------------------
+*/
+
+.container-table-orders::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 51px);
+    background-color: #e6e6e6;
+    top: 51px;
+    left: 0;
+}
+
+.container-table-orders::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 51px);
+    background-color: #e6e6e6;
+    top: 51px;
+    right: 0;
+}
+
+.wrap-table-orders {
+    overflow: auto;
+}
+
+.wrap-table-orders {
+    overflow: auto;
+}
+
+.table-orders {
+    overflow: auto;
+}
+
+
+
 
 /*[ Tags ]
 ///////////////////////////////////////////////////////////
