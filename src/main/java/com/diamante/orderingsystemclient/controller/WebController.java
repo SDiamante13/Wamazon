@@ -3,7 +3,6 @@ package com.diamante.orderingsystemclient.controller;
 import com.diamante.orderingsystemclient.client.ProductClient;
 import com.diamante.orderingsystemclient.entity.Product;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -12,9 +11,11 @@ import java.util.List;
 @Controller
 @Slf4j
 public class WebController {
+    private final ProductClient productClient;
 
-    @Autowired
-    private ProductClient productClient;
+    public WebController(ProductClient productClient) {
+        this.productClient = productClient;
+    }
 
     @GetMapping({"/", "", "index"})
     public String getHomePage() {

@@ -1,8 +1,6 @@
 package com.diamante.orderingsystemclient.client;
 
 import com.diamante.orderingsystemclient.entity.Product;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
@@ -13,14 +11,15 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-@Slf4j
 public class ProductClient {
-
-    @Autowired
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
     @Value("${base.url}")
-    String baseUrl;
+    private String baseUrl;
+
+    public ProductClient(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     public Product getOneProduct() {
         HttpHeaders headers = new HttpHeaders();
@@ -28,10 +27,10 @@ public class ProductClient {
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
         ResponseEntity<Product> response = restTemplate.exchange(
-                "http://localhost:8088/api/v1/product?id=3",
+                baseUrl + "/product?id=3",
                 HttpMethod.GET,
                 entity,
-               Product.class);
+                Product.class);
         return response.getBody();
     }
 
@@ -41,10 +40,11 @@ public class ProductClient {
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
         ResponseEntity<List<Product>> response = restTemplate.exchange(
-                "http://localhost:8088/api/v1/product/list",
+                baseUrl + "/product/list",
                 HttpMethod.GET,
                 entity,
-                new ParameterizedTypeReference<List<Product>>(){});
+                new ParameterizedTypeReference<List<Product>>() {
+                });
         return response.getBody();
     }
 }
