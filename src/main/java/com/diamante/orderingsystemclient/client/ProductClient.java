@@ -21,13 +21,13 @@ public class ProductClient {
         this.restTemplate = restTemplate;
     }
 
-    public Product getOneProduct() {
+    public Product getProduct(Long id) {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
         ResponseEntity<Product> response = restTemplate.exchange(
-                baseUrl + "/product?id=3",
+                baseUrl + "/product?id=" + id,
                 HttpMethod.GET,
                 entity,
                 Product.class);

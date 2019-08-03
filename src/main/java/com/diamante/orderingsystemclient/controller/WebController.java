@@ -4,6 +4,7 @@ import com.diamante.orderingsystemclient.client.ProductClient;
 import com.diamante.orderingsystemclient.entity.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
@@ -18,11 +19,18 @@ public class WebController {
     }
 
     @GetMapping({"/", "", "index"})
-    public String getHomePage() {
-        Product oneProduct = productClient.getOneProduct();
-        log.info("One product: " + oneProduct.toString());
+    public String getHomePage(Model model) {
+        model.addAttribute("products", productClient.getAllProducts());
         return "index";
     }
+
+    /*
+    *   <tr th:each="author : ${authors}">
+        <td th:text="${author.id}">123</td>
+        <td th:text="${author.firstName}">Stanly</td>
+        <td th:text="${author.lastName}">Manly</td>
+    *
+    * */
 
     @GetMapping("/about")
     public String getAboutPage() {
@@ -32,8 +40,15 @@ public class WebController {
     }
 
     @GetMapping("/product")
-    public String getProductPage() {
+    public String getProductPage(Model model) {
+        model.addAttribute("products", productClient.getAllProducts());
+
         return "product";
+    }
+
+    @GetMapping("/product-detail")
+    public String getProductDetailPage() {
+        return "product-detail";
     }
 
     @GetMapping("/cart")

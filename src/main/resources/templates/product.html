@@ -209,7 +209,7 @@
 
 					<!-- Product -->
 					<div class="row">
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50" th:each="product : ${products}">
 							<!-- Block2 -->
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
@@ -231,11 +231,12 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail}" th:text="${product.productName}"
+									   class="block2-name dis-block s-text3 p-b-5">
 										Herschel supply co 25l
 									</a>
 
-									<span class="block2-price m-text6 p-r-5">
+									<span class="block2-price m-text6 p-r-5" th:text="${product.price}">
 										$75.00
 									</span>
 								</div>
@@ -264,7 +265,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail}" class="block2-name dis-block s-text3 p-b-5">
 										Denim jacket blue
 									</a>
 
@@ -297,7 +298,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail}" class="block2-name dis-block s-text3 p-b-5">
 										Coach slim easton black
 									</a>
 
@@ -330,7 +331,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail}" class="block2-name dis-block s-text3 p-b-5">
 										Frayed denim shorts
 									</a>
 
@@ -367,7 +368,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail}" class="block2-name dis-block s-text3 p-b-5">
 										Herschel supply co 25l
 									</a>
 
@@ -400,7 +401,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail}" class="block2-name dis-block s-text3 p-b-5">
 										Denim jacket blue
 									</a>
 
@@ -433,7 +434,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail.html}" class="block2-name dis-block s-text3 p-b-5">
 										Herschel supply co 25l
 									</a>
 
@@ -466,7 +467,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail.html}" class="block2-name dis-block s-text3 p-b-5">
 										Denim jacket blue
 									</a>
 
@@ -499,7 +500,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail.html}" class="block2-name dis-block s-text3 p-b-5">
 										Coach slim easton black
 									</a>
 
@@ -532,7 +533,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail.html}" class="block2-name dis-block s-text3 p-b-5">
 										Frayed denim shorts
 									</a>
 
@@ -569,7 +570,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail.html}" class="block2-name dis-block s-text3 p-b-5">
 										Herschel supply co 25l
 									</a>
 
@@ -602,7 +603,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a th:href="@{/product-detail.html}" class="block2-name dis-block s-text3 p-b-5">
 										Denim jacket blue
 									</a>
 
