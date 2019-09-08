@@ -24,13 +24,6 @@ public class WebController {
         return "index";
     }
 
-    /*
-    *   <tr th:each="author : ${authors}">
-        <td th:text="${author.id}">123</td>
-        <td th:text="${author.firstName}">Stanly</td>
-        <td th:text="${author.lastName}">Manly</td>
-    *
-    * */
 
     @GetMapping("/about")
     public String getAboutPage() {

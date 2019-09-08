@@ -195,7 +195,7 @@
                             </h4>
 
                             <p class="t-center w-size4">
-                                Be the frist to know about the latest fashion news and get exclu-sive offers
+                                Be the first to know about the latest fashion news and get exclusive offers
                             </p>
 
                             <div class="w-size2 p-t-25">
@@ -228,7 +228,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="/images/item-02.jpg" alt="IMG-PRODUCT">
+                                <img th:src="'data:image/png;base64,' + ${products[0].productImage}" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -262,7 +262,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="/images/item-03.jpg" alt="IMG-PRODUCT">
+                                <img th:src="'data:image/png;base64,' + ${products[1].productImage}" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -296,7 +296,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="/images/item-05.jpg" alt="IMG-PRODUCT">
+                                <img th:src="'data:image/png;base64,' + ${products[2].productImage}" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -330,7 +330,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                <img src="/images/item-07.jpg" alt="IMG-PRODUCT">
+                                <img th:src="'data:image/png;base64,' + ${products[3].productImage}" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -369,8 +369,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="../static/images/item-02.jpg" th:src="@{images/item-02.jpg}"
-                                     alt="IMG-PRODUCT">
+                                <img th:src="'data:image/png;base64,' + ${products[4].productImage}" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -388,12 +387,12 @@
                             </div>
 
                             <div class="block2-txt p-t-20">
-                                <a th:href="@{/product-detail}"
+                                <a th:href="@{/product-detail}"  th:text="${products[4].productName}"
                                    class="block2-name dis-block s-text3 p-b-5">
                                     Herschel supply co 25l
                                 </a>
 
-                                <span class="block2-price m-text6 p-r-5">
+                                <span class="block2-price m-text6 p-r-5" th:text="${products[4].price}">
 									$75.00
 								</span>
                             </div>
@@ -404,7 +403,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="../static/images/item-03.jpg" alt="IMG-PRODUCT">
+                                <img th:src="'data:image/png;base64,' + ${products[5].productImage}" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -422,12 +421,12 @@
                             </div>
 
                             <div class="block2-txt p-t-20">
-                                <a th:href="@{/product-detail}"
+                                <a th:href="@{/product-detail}"  th:text="${products[5].productName}"
                                    class="block2-name dis-block s-text3 p-b-5">
                                     Denim jacket blue
                                 </a>
 
-                                <span class="block2-price m-text6 p-r-5">
+                                <span class="block2-price m-text6 p-r-5" th:text="${products[5].price}">
 									$92.50
 								</span>
                             </div>
@@ -438,7 +437,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="../static/images/item-05.jpg" alt="IMG-PRODUCT">
+                                <img th:src="'data:image/png;base64,' + ${products[6].productImage}" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -456,12 +455,12 @@
                             </div>
 
                             <div class="block2-txt p-t-20">
-                                <a th:href="@{/product-detail}"
+                                <a th:href="@{/product-detail}"  th:text="${products[6].productName}"
                                    class="block2-name dis-block s-text3 p-b-5">
                                     Coach slim easton black
                                 </a>
 
-                                <span class="block2-price m-text6 p-r-5">
+                                <span class="block2-price m-text6 p-r-5" th:text="${products[6].price}">
 									$165.90
 								</span>
                             </div>
@@ -472,8 +471,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                <img src="../static/images/item-07.jpg" th:src="@{/images/item-07.jpg}"
-                                     alt="IMG-PRODUCT">
+                                <img th:src="'data:image/png;base64,' + ${products[7].productImage}" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -491,17 +489,17 @@
                             </div>
 
                             <div class="block2-txt p-t-20">
-                                <a  th:href="@{/product-detail}"
+                                <a  th:href="@{/product-detail}"  th:text="${products[7].productName}"
                                    class="block2-name dis-block s-text3 p-b-5">
                                     Frayed denim shorts
                                 </a>
 
-                                <span class="block2-oldprice m-text7 p-r-5">
+                                <span class="block2-oldprice m-text7 p-r-5" th:text="${products[7].price}">
 									$29.50
 								</span>
 
                                 <span class="block2-newprice m-text8 p-r-5">
-									$15.90
+									$59.99
 								</span>
                             </div>
                         </div>

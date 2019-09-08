@@ -22,7 +22,7 @@ public class Product implements Serializable {
 
     private String manufacturer;
 
-    private byte[] productImage;
+    private String productImage;
 
     private Category category;
 
@@ -34,7 +34,7 @@ public class Product implements Serializable {
                    @JsonProperty("productName") String productName,
                    @JsonProperty("description") String description,
                    @JsonProperty("manufacturer") String manufacturer,
-                   @JsonProperty("productImage") byte[] productImage,
+                   @JsonProperty("productImage") String productImage,
                    @JsonProperty("category") Category category,
                    @JsonProperty("price") Double price,
                    @JsonProperty("quantity") int quantity) {
