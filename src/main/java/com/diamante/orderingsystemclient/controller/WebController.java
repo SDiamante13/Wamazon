@@ -25,6 +25,11 @@ public class WebController {
     }
 
 
+    @GetMapping("/login")
+    public String getLoginPage() {
+        return "login";
+    }
+
     @GetMapping("/about")
     public String getAboutPage() {
         List<Product> allProducts = productClient.getAllProducts();
