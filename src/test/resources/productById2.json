@@ -1,0 +1,10 @@
+{
+  "productId": 2,
+  "productName": "Merlin & the Pendragons",
+  "description": "Novel about a wizard named Merlin and his magical adventures.",
+  "manufacturer": "Penguin Books",
+  "productImage": "/9j/4AAQSkZJRgABAQAASABIAAD/2wBDAAgGBgcGBQ",
+  "category": "BOOKS",
+  "price": 6.99,
+  "quantity": 2
+},
