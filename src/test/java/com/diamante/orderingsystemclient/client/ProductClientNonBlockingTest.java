@@ -1,5 +1,6 @@
 package com.diamante.orderingsystemclient.client;
 
+import com.diamante.orderingsystemclient.entity.Category;
 import com.diamante.orderingsystemclient.entity.Product;
 import io.micrometer.core.instrument.util.IOUtils;
 import okhttp3.mockwebserver.MockResponse;
@@ -115,7 +116,7 @@ public class ProductClientNonBlockingTest {
         );
 
 
-        Flux<Product> result = productClientNonBlocking.getAllProductsUnderPrice(20.00);
+        Flux<Product> result = productClientNonBlocking.getAllProductsForCategory(Category.ELECTRONICS);
 
         StepVerifier.create(result)
                 .expectNextMatches(product -> product.getProductId() == 1L &&

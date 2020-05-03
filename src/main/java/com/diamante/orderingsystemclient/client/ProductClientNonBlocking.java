@@ -63,7 +63,7 @@ public class ProductClientNonBlocking {
         try {
             return webClient
                     .method(HttpMethod.GET)
-                    .uri(baseUrl + "/product/list?cat={category}", category)
+                    .uri(baseUrl + "/product/list?cat={category}", category.name())
                     .retrieve()
                     .bodyToFlux(Product.class);
         } catch (Exception ex) {
@@ -76,7 +76,7 @@ public class ProductClientNonBlocking {
         try {
             return webClient
                     .method(HttpMethod.GET)
-                    .uri(baseUrl + "/product/list?price=", price)
+                    .uri(baseUrl + "/product/list?price={price}", price)
                     .retrieve()
                     .bodyToFlux(Product.class);
         } catch (Exception ex) {
