@@ -3,15 +3,12 @@ package com.diamante.orderingsystemclient.client;
 import com.diamante.orderingsystemclient.entity.Category;
 import com.diamante.orderingsystemclient.entity.Product;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
@@ -28,15 +25,11 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withServerError;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withStatus;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(value = "base.url=http://localhost:8088/api/v1")
-public class ProductClientTest {
+public class ProductClientBlockingTest {
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private RestTemplate restTemplate = new RestTemplate();
 
-    @Autowired
-    private ProductClient productClient;
+    private ProductClientBlocking productClientBlocking;
 
     private MockRestServiceServer mockServer;
     private ObjectMapper mapper = new ObjectMapper();
@@ -44,9 +37,11 @@ public class ProductClientTest {
     private List<Product> expectedProductList;
     private Product product1, product2, product3, product4;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         setUpTestStubs();
+        productClientBlocking = new ProductClientBlocking(restTemplate);
+        ReflectionTestUtils.setField(productClientBlocking, "baseUrl", "http://localhost:8088/api/v1");
         mockServer = MockRestServiceServer.createServer(restTemplate);
     }
 
@@ -68,7 +63,7 @@ public class ProductClientTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(mapper.writeValueAsString(expectedProduct)));
 
-        Product actualProduct = productClient.getProductById(3L);
+        Product actualProduct = productClientBlocking.getProductById(3L);
 
         mockServer.verify();
 
@@ -85,7 +80,7 @@ public class ProductClientTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(mapper.writeValueAsString(expectedProductList.get(1))));
 
-        Product actualProduct = productClient.getProductByName("Merlin");
+        Product actualProduct = productClientBlocking.getProductByName("Merlin");
 
         mockServer.verify();
 
@@ -101,7 +96,7 @@ public class ProductClientTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(mapper.writeValueAsString(expectedProductList)));
 
-        List<Product> actualProductList = productClient.getAllProducts();
+        List<Product> actualProductList = productClientBlocking.getAllProducts();
 
         mockServer.verify();
 
@@ -117,7 +112,7 @@ public class ProductClientTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(mapper.writeValueAsString(Arrays.asList(product1, product4))));
 
-        List<Product> actualProductList = productClient.getAllProductsForCategory(Category.ELECTRONICS);
+        List<Product> actualProductList = productClientBlocking.getAllProductsForCategory(Category.ELECTRONICS);
 
         mockServer.verify();
 
@@ -134,7 +129,7 @@ public class ProductClientTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(mapper.writeValueAsString(Arrays.asList(product2, product3))));
 
-        List<Product> actualProductList = productClient.getAllProductsUnderPrice(48.99);
+        List<Product> actualProductList = productClientBlocking.getAllProductsUnderPrice(48.99);
 
         mockServer.verify();
 
@@ -149,7 +144,7 @@ public class ProductClientTest {
                 .andRespond(withServerError()
                         );
 
-        List<Product> actualProductList = productClient.getAllProductsForCategory(Category.ELECTRONICS);
+        List<Product> actualProductList = productClientBlocking.getAllProductsForCategory(Category.ELECTRONICS);
 
         mockServer.verify();
 

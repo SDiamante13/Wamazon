@@ -1,0 +1,10 @@
+{
+  "productId": 8,
+  "productName": "FIFA 20",
+  "description": "A video game based on professional soccer matches.",
+  "manufacturer": "EA Sports",
+  "productImage": "/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAgGBgcGBQgHBwcJCQg",
+  "category": "ELECTRONICS",
+  "price": 69.99,
+  "quantity": 40000
+}

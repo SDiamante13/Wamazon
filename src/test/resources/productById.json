@@ -1,0 +1,10 @@
+{
+  "productId": 1,
+  "productName": "Ipod",
+  "description": "Music player",
+  "manufacturer": "Apple",
+  "productImage": "/9j/4AAQSkZJRgABAQAAZABkAAD/",
+  "category": "ELECTRONICS",
+  "price": 119.99,
+  "quantity": 200
+}

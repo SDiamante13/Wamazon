@@ -1,6 +1,6 @@
 package com.diamante.orderingsystemclient.controller;
 
-import com.diamante.orderingsystemclient.client.ProductClient;
+import com.diamante.orderingsystemclient.client.ProductClientBlocking;
 import com.diamante.orderingsystemclient.entity.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -12,29 +12,29 @@ import java.util.List;
 @Controller
 @Slf4j
 public class WebController {
-    private final ProductClient productClient;
+    private final ProductClientBlocking productClientBlocking;
 
-    public WebController(ProductClient productClient) {
-        this.productClient = productClient;
+    public WebController(ProductClientBlocking productClientBlocking) {
+        this.productClientBlocking = productClientBlocking;
     }
 
     @GetMapping({"/", "", "index"})
     public String getHomePage(Model model) {
-        model.addAttribute("products", productClient.getAllProducts());
+        model.addAttribute("products", productClientBlocking.getAllProducts());
         return "index";
     }
 
 
     @GetMapping("/about")
     public String getAboutPage() {
-        List<Product> allProducts = productClient.getAllProducts();
+        List<Product> allProducts = productClientBlocking.getAllProducts();
         log.info("All products: " + allProducts.toString());
         return "about";
     }
 
     @GetMapping("/product")
     public String getProductPage(Model model) {
-        model.addAttribute("products", productClient.getAllProducts());
+        model.addAttribute("products", productClientBlocking.getAllProducts());
 
         return "product";
     }

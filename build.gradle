@@ -2,6 +2,8 @@ buildscript {
 	ext {
 		springBootVersion = '2.2.6.RELEASE'
 		lombokVersion = '1.18.12'
+		mockWebServerVersion = '4.6.0'
+		reactorTestVersion = '3.3.5.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -24,12 +26,18 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation "org.springframework.boot:spring-boot-starter-actuator"
+	implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springframework.boot:spring-boot-starter-webflux"
+	runtimeOnly "org.springframework.boot:spring-boot-devtools"
 	compileOnly "org.projectlombok:lombok:${lombokVersion}"
 	annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
 	testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation "com.squareup.okhttp3:okhttp:${mockWebServerVersion}"
+	testImplementation "com.squareup.okhttp3:mockwebserver:${mockWebServerVersion}"
+	testImplementation "io.projectreactor:reactor-test:${reactorTestVersion}"
 }

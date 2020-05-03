@@ -1,0 +1,32 @@
+[
+  {
+    "productId": 1,
+    "productName": "Ipod",
+    "description": "Music player",
+    "manufacturer": "Apple",
+    "productImage": "/9j/4AAQSkZJRgABAQAAZABkAAD/2wBDAAIBAQEBAQIBAQEC",
+    "category": "ELECTRONICS",
+    "price": 119.99,
+    "quantity": 0
+  },
+  {
+    "productId": 4,
+    "productName": "Flat Screen TV",
+    "description": "OLED High Definition TV",
+    "manufacturer": "Samsung",
+    "productImage": "/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBw",
+    "category": "ELECTRONICS",
+    "price": 599.99,
+    "quantity": 0
+  },
+  {
+    "productId": 8,
+    "productName": "FIFA 20",
+    "description": "A video game based on professional soccer matches.",
+    "manufacturer": "EA Sports",
+    "productImage": "/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAgGBgcGBQgHBwcJCQgKD",
+    "category": "ELECTRONICS",
+    "price": 69.99,
+    "quantity": 40000
+  }
+]

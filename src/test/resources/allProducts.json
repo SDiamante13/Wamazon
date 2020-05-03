@@ -1,0 +1,32 @@
+[
+  {
+    "productId": 1,
+    "productName": "Ipod",
+    "description": "Music player",
+    "manufacturer": "Apple",
+    "productImage": "/9j/4AAQSkZJRgABAQAAZABkAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBwkIBgcJBwYGCAsICQ",
+    "category": "ELECTRONICS",
+    "price": 119.99,
+    "quantity": 1
+  },
+  {
+    "productId": 2,
+    "productName": "Merlin & the Pendragons",
+    "description": "Novel about a wizard named Merlin and his magical adventures.",
+    "manufacturer": "Penguin Books",
+    "productImage": "/9j/4AAQSkZJRgABAQAASABIAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDA",
+    "category": "BOOKS",
+    "price": 6.99,
+    "quantity": 2
+  },
+  {
+    "productId": 3,
+    "productName": "Men's Black Watch",
+    "description": "A black watch",
+    "manufacturer": "IZOD",
+    "productImage": "/9j/4AAQSkZJRgABAQEASABIAAD/7QD0UGhvdG9zaG9wIDMuMAA4QklNA+0AAAAAABAAZAAAAAEAAQBkAAAAAQABOEJJTQQEAAA",
+    "category": "CLOTHING_SHOES_JEWELERY_WATCHES",
+    "price": 45.79,
+    "quantity": 3
+  }
+]
