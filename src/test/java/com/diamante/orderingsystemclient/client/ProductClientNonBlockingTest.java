@@ -7,6 +7,7 @@ import okhttp3.mockwebserver.Dispatcher;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import okhttp3.mockwebserver.RecordedRequest;
+import org.assertj.core.api.Assertions;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,6 +23,8 @@ import reactor.util.function.Tuple2;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProductClientNonBlockingTest {
 
@@ -113,6 +116,16 @@ public class ProductClientNonBlockingTest {
                         .equals("Penguin Books"))
                 .expectComplete()
                 .verify();
+    }
+
+    @Test
+    void twoSimultaneousCalls() {
+        Mono<Product> product1 = productClientNonBlocking.getProductById(1L);
+        Mono<Product> product2 = productClientNonBlocking.getProductById(2L);
+        Tuple2<Product, Product> productTuple = Mono.zip(product1, product2).block();
+
+        assertThat(productTuple.getT1().getProductName()).isEqualTo("Ipod");
+        assertThat(productTuple.getT2().getProductName()).isEqualTo("Merlin & the Pendragons");
     }
 
     private void setUpDispatcher() {
